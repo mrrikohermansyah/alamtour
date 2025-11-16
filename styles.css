@@ -45,7 +45,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,C
 .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:0}
 .modal-card{position:relative;background:var(--card);border:1px solid var(--ring);border-radius:16px;max-width:900px;width:92vw;max-height:86vh;overflow:auto;z-index:1}
 
-.modal-close{position:absolute;top:10px;right:10px;background:transparent;color:var(--muted);border:1px solid #26302b;border-radius:10px;padding:6px 10px;cursor:pointer}
+.modal-close{position:absolute;top:10px;right:10px;background:transparent;color:var(--muted);border:1px solid #26302b;border-radius:12px;width:40px;height:40px;display:grid;place-items:center;font-size:18px;cursor:pointer;z-index:2;touch-action:manipulation}
 .modal-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:18px}
 .modal-body h2{margin:0}
 .lead{color:var(--muted)}
@@ -90,3 +90,17 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,C
 .timeline-title{font-weight:600}
 .gallery-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
 .gallery-scroll img{flex:0 0 160px;height:120px;object-fit:cover;border-radius:12px}
+
+body,.modal-card,.gallery-scroll{scrollbar-width:thin;scrollbar-color:var(--ring) transparent}
+body::-webkit-scrollbar{width:8px}
+.modal-card::-webkit-scrollbar{width:8px}
+.gallery-scroll::-webkit-scrollbar{height:8px}
+body::-webkit-scrollbar-track,.modal-card::-webkit-scrollbar-track,.gallery-scroll::-webkit-scrollbar-track{background:transparent}
+body::-webkit-scrollbar-thumb,.modal-card::-webkit-scrollbar-thumb,.gallery-scroll::-webkit-scrollbar-thumb{background:var(--ring);border-radius:999px}
+body::-webkit-scrollbar-thumb:hover,.modal-card::-webkit-scrollbar-thumb:hover,.gallery-scroll::-webkit-scrollbar-thumb:hover{background:var(--accent-2)}
+
+.gallery-scroll{scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;position:relative}
+.gallery-scroll img{scroll-snap-align:start}
+.gallery-scroll::before,.gallery-scroll::after{content:"";position:absolute;top:0;bottom:0;width:24px;pointer-events:none}
+.gallery-scroll::before{left:0;background:linear-gradient(to right, var(--card), rgba(0,0,0,0))}
+.gallery-scroll::after{right:0;background:linear-gradient(to left, var(--card), rgba(0,0,0,0))}
