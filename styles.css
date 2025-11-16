@@ -20,6 +20,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,C
 .search-wrap input,.search-wrap select{flex:1;max-width:520px;background:var(--card);border:1px solid var(--ring);color:var(--text);padding:12px 14px;border-radius:12px;outline:none}
 .search-wrap select{flex:0 0 180px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:28px 0}
+.grid-2{grid-template-columns:repeat(2,1fr)}
 .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
 .thumb{position:relative;aspect-ratio:16/9;background:#0b0e0d}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
@@ -54,7 +55,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,C
 .site-footer{border-top:1px solid #1e2622;margin-top:18px}
 .footer-wrap{display:flex;justify-content:space-between;align-items:center;height:64px;color:var(--muted)}
 @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.modal-body{grid-template-columns:1fr}}
-@media (max-width:560px){.grid{grid-template-columns:1fr}.search-wrap{flex-direction:column}.search-wrap select{flex:1}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.search-wrap{flex-direction:column}.search-wrap select{flex:1}}
+@media (max-width:560px){.admin .actions{flex-direction:column;align-items:flex-start;gap:10px}}
 /* auth */
 .auth-main{padding:40px 0}
 .auth-card{max-width:520px;margin:0 auto;padding:20px}
