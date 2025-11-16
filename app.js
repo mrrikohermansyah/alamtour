@@ -33,7 +33,7 @@ function render(){elPackages.innerHTML='';if(!state.filtered.length){elPackages.
   <div class="actions">
     <span class="price">${nf.format(p.price)}</span>
     <button class="btn" data-id="${p.id}">Lihat Detail</button>
-  </div>`;card.querySelector('.btn').addEventListener('click',()=>openDetail(p));elPackages.appendChild(card);});}
+  </div>`;card.querySelector('.btn').addEventListener('click',()=>openDetailV2(p));elPackages.appendChild(card);});}
 function openDetail(p){const gal=(p.gallery&&p.gallery.length?p.gallery:['https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop']);const itin=(p.itinerary||[]).map(i=>`<li>Hari ${i.day} — ${i.title}: ${i.details}</li>`).join('');const inc=(p.includes||[]).map(i=>`<li>${i}</li>`).join('');const exc=(p.excludes||[]).map(i=>`<li>${i}</li>`).join('');const hi=(p.highlights||[]).map(i=>`<li>${i}</li>`).join('');const pol=(p.policies||[]).map(i=>`<li>${i}</li>`).join('');const desc=p.long_description||p.short_description||'';const hasLL=(typeof p.map_lat==='number'&&!isNaN(p.map_lat))&&(typeof p.map_lng==='number'&&!isNaN(p.map_lng));const embedValid=(typeof p.map_embed==='string'&&p.map_embed.startsWith('https://www.google.com/maps/embed'));const mapSrc=embedValid?p.map_embed:(hasLL?`https://www.google.com/maps?q=${p.map_lat},${p.map_lng}&z=12&output=embed`:(p.map_query?`https://www.google.com/maps?q=${encodeURIComponent(p.map_query)}&z=12&output=embed`:null));const mapLink=hasLL?`https://www.google.com/maps?q=${p.map_lat},${p.map_lng}`:(p.map_query?`https://www.google.com/maps?q=${encodeURIComponent(p.map_query)}`:null);const waNum=(waNumber?String(waNumber).replace(/[^\d]/g,''):null);const waMsg=`Halo, saya ingin menanyakan ketersediaan paket ${p.title}${p.location?` di ${p.location}`:''}.`;const waHref=(waNum?`https://wa.me/${waNum}?text=${encodeURIComponent(waMsg)}`:null);elModalContent.innerHTML=`
   <div class="modal-body">
     <div>
@@ -59,3 +59,57 @@ function openDetail(p){const gal=(p.gallery&&p.gallery.length?p.gallery:['https:
   </div>`;showModal();}
 function showModal(){elModal.classList.remove('hidden');document.body.classList.add('modal-open');}
 function hideModal(){elModal.classList.add('hidden');document.body.classList.remove('modal-open');}
+
+function openDetailV2(p){
+  const gal=(p.gallery&&p.gallery.length?p.gallery:['https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop']);
+  const itinHtml=(p.itinerary||[]).map(i=>`<div class="timeline-item"><div class="timeline-day">Hari ${i.day}</div><div class="timeline-title">${i.title}</div><div class="timeline-desc">${i.details}</div></div>`).join('');
+  const inc=(p.includes||[]).map(i=>`<li>${i}</li>`).join('');
+  const exc=(p.excludes||[]).map(i=>`<li>${i}</li>`).join('');
+  const hiChips=(p.highlights||[]).map(i=>`<span class='chip'>${i}</span>`).join('');
+  const pol=(p.policies||[]).map(i=>`<li>${i}</li>`).join('');
+  const desc=p.long_description||p.short_description||'';
+  const hasLL=(typeof p.map_lat==='number'&&!isNaN(p.map_lat))&&(typeof p.map_lng==='number'&&!isNaN(p.map_lng));
+  const embedValid=(typeof p.map_embed==='string'&&p.map_embed.startsWith('https://www.google.com/maps/embed'));
+  const mapSrc=embedValid?p.map_embed:(hasLL?`https://www.google.com/maps?q=${p.map_lat},${p.map_lng}&z=12&output=embed`:(p.map_query?`https://www.google.com/maps?q=${encodeURIComponent(p.map_query)}&z=12&output=embed`:null));
+  const mapLink=hasLL?`https://www.google.com/maps?q=${p.map_lat},${p.map_lng}`:(p.map_query?`https://www.google.com/maps?q=${encodeURIComponent(p.map_query)}`:null);
+  const waNum=(waNumber?String(waNumber).replace(/[^\d]/g,''):null);
+  elModalContent.innerHTML=`
+    <div class="modal-body">
+      <div>
+        <div class="detail-header">
+          <div>
+            <h2 class="detail-title">${p.title}</h2>
+            <div class="detail-sub">${p.location} • ${p.duration||''}${p.meeting_point?` • Titik kumpul: ${p.meeting_point}`:''}</div>
+          </div>
+          <div class="detail-actions">
+            <div class="price-badge">${nf.format(p.price)}</div>
+            <div class="cta-group">
+              ${waNum?`<a class="btn btn-wa" href="${`https://wa.me/${waNum}?text=${encodeURIComponent('Halo, saya ingin menanyakan ketersediaan paket '+p.title+(p.location?(' di '+p.location):'')+'.\nHarga: '+nf.format(p.price)+'\nDurasi: '+(p.duration||'-'))}`}" target="_blank" rel="noopener">WhatsApp</a>`:''}
+              ${mapLink?`<a class="btn btn-map" href="${mapLink}" target="_blank" rel="noopener">Google Maps</a>`:''}
+            </div>
+          </div>
+        </div>
+        <p>${desc}</p>
+        ${hiChips?`<div class="chip-list">${hiChips}</div>`:''}
+        <div class="section">
+          <div class="section-title">Rincian Perjalanan</div>
+          ${itinHtml?`<div class="timeline">${itinHtml}</div>`:`<ul class="list"><li>Rincian belum tersedia</li></ul>`}
+        </div>
+        <div class="section">
+          <div class="section-title">Termasuk</div>
+          <ul class="list">${inc||'<li>Informasi belum tersedia</li>'}</ul>
+        </div>
+        <div class="section">
+          <div class="section-title">Tidak Termasuk</div>
+          <ul class="list">${exc||'<li>Informasi belum tersedia</li>'}</ul>
+        </div>
+        ${pol?`<div class="section"><div class="section-title">Kebijakan</div><ul class="list">${pol}</ul></div>`:''}
+      </div>
+      <div>
+        <div class="gallery-scroll">${gal.slice(0,8).map(u=>`<img src='${u}' alt='${p.title}'>`).join('')}</div>
+        ${mapSrc?`<div class="map"><iframe class="map-frame" src="${mapSrc}" allowfullscreen loading="lazy"></iframe></div>`:''}
+        <div class="tags" style="margin-top:12px">${(p.tags||[]).map(t=>`<span class='tag'>${t}</span>`).join('')}</div>
+      </div>
+    </div>`;
+  showModal();
+}
