@@ -57,6 +57,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,C
 @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.modal-body{grid-template-columns:1fr}}
 @media (max-width:560px){.grid{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.search-wrap{flex-direction:column}.search-wrap select{flex:1}}
 @media (max-width:560px){.admin .actions{flex-direction:column;align-items:flex-start;gap:10px}}
+@media (max-width:560px){.admin .gallery{grid-template-columns:repeat(2,1fr)}.modal-card{width:96vw;max-height:90vh}.admin .modal-body{padding:12px}.admin .modal-body .btn{width:100%}}
 /* auth */
 .auth-main{padding:40px 0}
 .auth-card{max-width:520px;margin:0 auto;padding:20px}
