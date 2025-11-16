@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin • Alam Tour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="index.html">Alam Tour</a>
+      <nav class="nav">
+        <span class="nav-link" id="user-email"></span>
+        <button class="nav-link btn" id="btn-logout">Logout</button>
+        <a class="nav-link" href="index.html">Lihat Situs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:24px 0 40px">
+    <section class="card" style="padding:16px;margin-bottom:16px">
+      <div class="content" style="gap:12px">
+        <div class="title">Pengaturan Situs</div>
+        <div class="meta">Ganti header image beranda via URL (tanpa upload).</div>
+        <input id="site-hero-url" class="field" placeholder="Header image URL" />
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" id="site-hero-save">Simpan Header</button>
+        </div>
+      </div>
+    </section>
+    <section class="card" style="padding:16px">
+      <div class="content" style="gap:14px">
+        <div class="title">Dashboard Paket</div>
+        <div class="meta">Edit paket tanpa coding, lalu ekspor JSON dan unggah ke repo.</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" id="btn-add">Tambah Paket</button>
+          <button class="btn" id="btn-download">Download JSON</button>
+          <label class="btn" for="file-input" style="cursor:pointer">Unggah JSON</label>
+          <input id="file-input" type="file" accept="application/json" style="display:none" />
+          <button class="btn" id="btn-reload">Muat dari Server</button>
+        </div>
+        <div style="display:grid;gap:12px">
+          <div class="search-wrap">
+            <input id="admin-search" type="search" placeholder="Cari paket" />
+          </div>
+          <div id="admin-list" class="grid" style="grid-template-columns:repeat(2,1fr)"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="editor-modal" class="modal hidden">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-card">
+        <button class="modal-close" aria-label="Tutup" data-close="true">✕</button>
+        <div id="editor-content"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+  <script src="db.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alam Tour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="index.html">Alam Tour</a>
+      <nav class="nav">
+        <a class="nav-link" href="login.html">Admin</a>
+        <a class="nav-link" href="#packages">Paket</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-media"><img id="hero-img" class="hero-img" alt="" /></div>
+    <div class="container hero-wrap">
+      <h1>Jelajah Paket Wisata Alam</h1>
+      <p>Kurasi perjalanan alam yang elegan, minimalis, dan terjangkau.</p>
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Cari lokasi, paket, atau tag" />
+        <select id="sort">
+          <option value="recommended">Direkomendasikan</option>
+          <option value="price_asc">Harga Terendah</option>
+          <option value="price_desc">Harga Tertinggi</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="packages" class="grid"></section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Tutup" data-close="true">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <span>© <span id="year"></span> Alam Tour</span>
+      <a class="footer-link" href="https://github.com/" target="_blank" rel="noopener">Hosting: GitHub Pages</a>
+    </div>
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

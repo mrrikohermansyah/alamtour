@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Admin • Alam Tour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="index.html">Alam Tour</a>
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Beranda</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container auth-main">
+    <section class="card auth-card">
+      <div class="content content-lg">
+        <div class="title">Login Admin</div>
+        <input id="email" class="field" type="email" placeholder="Email" />
+        <input id="password" class="field" type="password" placeholder="Password" />
+        <div class="actions-vertical">
+          <button class="btn" id="btn-login">Masuk</button>
+          <button class="btn" id="btn-google">Masuk dengan Google</button>
+        </div>
+        <div id="login-msg" class="meta"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
