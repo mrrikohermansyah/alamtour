@@ -1,0 +1,72 @@
+{
+  "updated_at": "2025-11-16T00:00:00.000Z",
+  "currency": "IDR",
+  "packages": [
+    {
+      "id": "bromo-sunrise",
+      "title": "Bromo Sunrise",
+      "location": "Taman Nasional Bromo Tengger Semeru",
+      "duration": "2D1N",
+      "price": 1500000,
+      "thumbnail": "https://images.unsplash.com/photo-1528131663077-1a7f1a67c0f0?q=80&w=1200&auto=format&fit=crop",
+      "gallery": [
+        "https://images.unsplash.com/photo-1528131663077-1a7f1a67c0f0?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1526483361551-c7b66eb4a3c1?q=80&w=1200&auto=format&fit=crop"
+      ],
+      "tags": ["Gunung", "Sunrise", "Jeep"],
+      "short_description": "Pengalaman sunrise epik di Gunung Bromo dengan pemandu lokal.",
+      "itinerary": [
+        {"day": 1, "title": "Berangkat", "details": "Penjemputan dan perjalanan menuju Bromo."},
+        {"day": 2, "title": "Sunrise", "details": "Sunrise di Penanjakan, eksplor kawah dan pasir berbisik."}
+      ],
+      "includes": ["Transportasi", "Guide", "Tiket masuk"],
+      "excludes": ["Makan siang", "Pengeluaran pribadi"],
+      "featured": true
+    },
+    {
+      "id": "raja-ampat-snorkeling",
+      "title": "Raja Ampat Snorkeling",
+      "location": "Raja Ampat, Papua Barat",
+      "duration": "4D3N",
+      "price": 6800000,
+      "thumbnail": "https://images.unsplash.com/photo-1526481280696-8e5f3230f046?q=80&w=1200&auto=format&fit=crop",
+      "gallery": [
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1496317556649-f930d733eea2?q=80&w=1200&auto=format&fit=crop"
+      ],
+      "tags": ["Laut", "Snorkeling", "Kepulauan"],
+      "short_description": "Menikmati kejernihan laut dan terumbu karang Raja Ampat.",
+      "itinerary": [
+        {"day": 1, "title": "Tiba", "details": "Check-in dan briefing keselamatan."},
+        {"day": 2, "title": "Snorkeling", "details": "Tur spot snorkeling utama dan pulau-pulau."},
+        {"day": 3, "title": "Eksplorasi", "details": "Island hopping dan fotografi."},
+        {"day": 4, "title": "Pulang", "details": "Belanja oleh-oleh dan kepulangan."}
+      ],
+      "includes": ["Boat", "Alat snorkeling", "Makan"],
+      "excludes": ["Penerbangan", "Asuransi perjalanan"],
+      "featured": true
+    },
+    {
+      "id": "leuser-trek",
+      "title": "Leuser Jungle Trek",
+      "location": "Taman Nasional Gunung Leuser",
+      "duration": "3D2N",
+      "price": 2800000,
+      "thumbnail": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop",
+      "gallery": [
+        "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop"
+      ],
+      "tags": ["Hutan", "Trek", "Satwa"],
+      "short_description": "Tracking hutan tropis dan satwa liar Sumatra.",
+      "itinerary": [
+        {"day": 1, "title": "Mulai trek", "details": "Pengenalan jalur dan kamp."},
+        {"day": 2, "title": "Eksplorasi", "details": "Observasi satwa dan sungai."},
+        {"day": 3, "title": "Kembali", "details": "Turun dan kepulangan."}
+      ],
+      "includes": ["Guide", "Tenda", "Perizinan"],
+      "excludes": ["Transportasi ke basecamp", "Makanan pribadi"],
+      "featured": false
+    }
+  ]
+}
