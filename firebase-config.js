@@ -1,5 +1,5 @@
 window.FIREBASE_CONFIG= {
-  apiKey: "AIzaSyAlPIhvzdnDQ2eJN728_RoeDGYPeIesUrw",
+  apiKey: "AIzaSyA_tE1I6PzatkXRmozm9YQLz2WPItDxQ0c",
   authDomain: "alamtour-ccf6a.firebaseapp.com",
   projectId: "alamtour-ccf6a",
   storageBucket: "alamtour-ccf6a.firebasestorage.app",

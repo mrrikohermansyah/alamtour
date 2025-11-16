@@ -54,5 +54,5 @@ function openDetail(p){const gal=(p.gallery&&p.gallery.length?p.gallery:['https:
       <div class="tags" style="margin-top:12px">${(p.tags||[]).map(t=>`<span class='tag'>${t}</span>`).join('')}</div>
     </div>
   </div>`;showModal();}
-function showModal(){elModal.classList.remove('hidden');}
-function hideModal(){elModal.classList.add('hidden');}
+function showModal(){elModal.classList.remove('hidden');document.body.classList.add('modal-open');}
+function hideModal(){elModal.classList.add('hidden');document.body.classList.remove('modal-open');}
